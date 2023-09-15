@@ -2,19 +2,20 @@ import { useState } from 'react'
 
 function Form(props) {
     const [nombre, setNombre] = useState('')
-    const [color, setColor] = useState('')
+    const [mail, setMail] = useState('')
     const [mensaje, setMensaje] = useState('')
 
     function laValidacion(event) {
         event.preventDefault()
-        if (nombre.length >= 3 && color.length >=6) {
+        const emailPattern = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+        if (nombre.length >= 3 && emailPattern.test(mail)) {
             props.onNombre(nombre)
-            props.onColor(color)
-            setMensaje('')
+            props.onMail(mail)
+            setMensaje('Bien')
         } 
         else {
-            console.log('todo mal')
-            setMensaje('Por favor chequea que la informacion sea correcta')
+            console.log('Correo electrónico no válido')
+            setMensaje('Por favor, ingrese un mail y un nombre valido')
         }
     }
     return (
@@ -26,7 +27,7 @@ function Form(props) {
             gap: '16px',
         }}
         >
-            <label htmlFor="pedido">Ingresa un color</label>
+            <label htmlFor="pedido">Ingresa su mail</label>
             <input 
                 type="text"
                 placeholder="Ingresa tu nombre"
@@ -36,13 +37,13 @@ function Form(props) {
             />
              <input 
                 type="text"
-                placeholder="Ingresa tu color favorito (formato HEX)"
-                id='color'
-                value={color}
-                onChange={(e) => setColor(e.target.value)}
+                placeholder="Ingrese su mail"
+                id='mail'
+                value={mail}
+                onChange={(e) => setMail(e.target.value)}
             />
             {mensaje ? <p>{mensaje}</p> : undefined}
-            <button type="submit">Submit</button>
+            <button>Submit</button>
         </form>
     )
 }

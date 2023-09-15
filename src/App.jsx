@@ -1,22 +1,15 @@
 import './App.css'
-import { useState } from 'react'
-import Form from './Components/Form'
-import Card from './Components/Card'
+import Footer from './Components/Footer'
+import NavBar from './Components/NavBar'
+import { Outlet} from 'react-router-dom'
 
 function App() {
-  const [nombre, setNombre] = useState('');
-  const [color, setColor] = useState('');
-  function laValidacion(nombre, color){
-    setNombre(nombre)
-    setColor(color)
-    console.log('Todo bien')
-  }
+  
   return (
       <>
-        <Form onNombre={laValidacion} onColor={laValidacion}/>
-        {nombre ? <Card>
-          {nombre}
-        </Card>: "Ingresa tu respuesta"}
+        <NavBar />
+        <Outlet />
+        <Footer/>
       </>
   )
 }

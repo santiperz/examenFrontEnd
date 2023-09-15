@@ -1,10 +1,36 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #213547;
+}
+.nav{
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+.nav div{
+  width: 60vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
+.nav div a{
+  font-size: 2em;
+  padding: 7px 13px;
+  border-radius: 20px;
+}
+.nav a:hover{
+  background: #f2fcff;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -12,12 +38,47 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #42ffd3);
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.card{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  background-color: #51d7ff;
+  border-radius: 5%;
+  border: 1.5px solid #31c3f5;
+  padding: 10px;
+  width: 200px;
+  min-height: 300px;
+  margin: 15px;
+}
+
+.card img{
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  border:  1.5px solid #31c3f5;
+}
+
+.lista, .favs{
+    display: flex;
+    width: 80vw;
+    justify-content: space-around;
+    align-items:center;
+    flex-wrap: wrap;
+}
+
+.detail{
+  background: #d2f4ff;
+  color: #5177ff;
+  padding: 25px;
+  border-radius: 50px;
+}
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -39,4 +100,12 @@
 
 .read-the-docs {
   color: #888;
+}
+.footer{
+  background: #ffffff;
+  width: 100vw;
+}
+.footer img {
+  height: 5vh;
+  background-color: rgb(255, 255, 255);
 }
